@@ -1,0 +1,78 @@
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="ajax.js"></script>
+    <script src="listar.js"></script>
+    <script src="cadastrar.js"></script>
+    <script src="botaoexclusao.js"></script>
+    <script src="animacoes.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Lista</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="cadastro.html">cadastro</a>
+                </li>
+
+            </ul>
+            <input class="form-control mr-sm-2" type="search" id="pesquisa" placeholder="Digite o nome para ver mais detalhes" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" onclick="getPorNome(document.getElementById('pesquisa').value, listarPorNome);">Pesquisar</button>
+
+        </div>   
+    </nav>
+
+    <button id="botaoListar" class ="button-listar" onclick="get(listar);">Listar</button>
+
+    <table class="table" id="listaPessoas">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Cep</th>
+                <th scope="col">Editar</th>
+                <th scope="col">Excluir</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <button type="button" id="novo" onclick="RedirecionaParaCadastrar()" value="Novo" class="btn btn-primary">Novo</button>
+
+    <div id='confirm' class="exclusao">
+
+        
+    </div>
+
+    <div id="Pessoa"></div>
+    <table id="dadosPessoais" class="table">
+
+    </table>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
