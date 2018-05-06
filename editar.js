@@ -11,7 +11,6 @@ function editar(resposta){
     document.getElementById('cadCep').value = e.Cep;
     document.getElementById('cadRG').value = e.RG;
     $("input[name=valor][value=" + e.Sexo + "]").attr('checked', 'checked');
-    $('#Escolaridade option[value='+e.Escolaridade+']').attr('selected','selected');
 
     $('#btnCadastrar').click(function () {
         $('input:radio[name=valor]').each(function () {
@@ -19,19 +18,23 @@ function editar(resposta){
             if ($(this).is(':checked'))
                 valor = $(this).val();
         })
-        // obtendo o valor do atributo value da tag option
-        valorEscolhido = $("#Escolaridade option:selected").val();
 
         e.nome = document.getElementById('cadNome').value;
         e.email = document.getElementById('cadEmail').value;
         e.telefone = document.getElementById('cadTelefone').value;
-        e.Escolaridade = valorEscolhido;
         e.Sexo = valor;
-
-        console.log(e.nome = document.getElementById('cadNome').value,
-        console.log(e.RG),
-            e.email = document.getElementById('cadEmail').value,
-            e.telefone = document.getElementById('cadTelefone').value);
+        e.Nascimento = document.getElementById('cadNascimento').value;
+        e.CPF = document.getElementById('cadCpf').value;
+        e.Cep = document.getElementById('cadCep').value;
+        e.RG = document.getElementById('cadRG').value;
+        console.log("valores do objeto e"+
+            e.nome,
+            e.email,
+            e.telefone,
+            e.Cep,
+            e.CPF,
+            e.Nascimento
+        );
 
         var id = e.id;
         var pessoa = e;

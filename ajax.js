@@ -20,16 +20,16 @@ function getPorId(id, funcao) {
 
 }
 
-function getPorNome(nome, funcao){
-    console.log("O nome e:"+nome);
+function getPorNome(nome, funcao) {
+    console.log("O nome e:" + nome);
     JSON.stringify(nome);
     console.log(nome);
     $.ajax({
         url: 'http://localhost:52698/api/pessoa/?nome=' + nome,
-        method:'GET',
-        contentType:'application/json; charset=UTF-8',
-    }).then(function(a){
-        console.log("retorno do get por nome: "+a)
+        method: 'GET',
+        contentType: 'application/json; charset=UTF-8',
+    }).then(function (a) {
+        console.log("retorno do get por nome: " + a)
         funcao(a);
     })
 }
@@ -43,7 +43,7 @@ function put(id, pessoa) {
     }).then(function (a) {
         alert("sucesso");
         console.log("retorno put" + a);
-        window.location.assign("http://10.1.2.23:8080/index.html");
+        window.location.assign("./index.html");
     })
 }
 
@@ -58,18 +58,26 @@ function post(pessoa) {
             console.log("pessoa :" + pessoa + "success");
             console.log("data :" + retorno);
             alert("Cadastro efetuado com sucesso.");
-            window.location.assign("http://10.1.2.23:8080/index.html");
+            var url = location.href;
+            url = url.split("/")[0] + "/index.html";
+            window.location.assign(url);
         }),
         error: (function (retorno) {
             console.log("pessoa :" + pessoa + "success");
             console.log("data :" + retorno);
-            alert("Algum erro inesperado ocorreu :-(!.");
+            console.log(retorno);
+             if (retorno.status == 400) {
+                alert("Usuário já cadastrado!");
+            }else{
+                alert("Algum erro inesperado ocorreu :-(!.");
+            }
+
         })
 
     });
 }
 
-function Delete(id){
+function Delete(id) {
     $.ajax({
         url: 'http://localhost:52698/api/pessoa/' + id,
         method: 'DELETE',
@@ -86,7 +94,9 @@ function Delete(id){
             console.log("data Json" + JSON.stringify(data));
 
             console.log("objJSON : " + ObjPessoa);
-            window.location.assign("http://10.1.2.23:8080/index.html");
+            var url = location.href;
+            url = url.split("/")[0] + "/index.html";
+            window.location.assign(url);
         });
     })
 }

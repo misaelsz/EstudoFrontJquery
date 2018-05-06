@@ -23,5 +23,7 @@ function cadastrar(pessoa){
 
 }
 function RedirecionaParaCadastrar(){
-    window.location.href = "http://10.1.2.23:8080/cadastro.html"
+    var url = location.href;
+           url = url.split("/")[0]+"/cadastro.html";
+            window.location.assign(url);
 }
